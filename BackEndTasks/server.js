@@ -1,10 +1,12 @@
-const express = require("express");
-const cors = require("cors");
-const { Pool } = require("pg");
+import express from "express";
+import cors from "cors";
+import pg from "pg";
+import "dotenv/config";
+const { Pool } = pg;
 
 const pool = new Pool({
-  connectionString:
-    "postgresql://neondb_owner:npg_z07uYOSCBaDV@ep-divine-queen-ay7tl3za.c-5.us-east-2.aws.neon.tech/neondb?sslmode=require",
+  connectionString: process.env.REACT_APP_CONECTION_STRING,
+  //"postgresql://neondb_owner:npg_z07uYOSCBaDV@ep-divine-queen-ay7tl3za-pooler.c-5.us-east-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require",
   ssl: {
     rejectUnauthorized: false,
   },
